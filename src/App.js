@@ -59,10 +59,13 @@ class App extends Component {
       }
     }
     this.setState({
-      value: '',
       count: count + 1,
+      input: {
+        inputValue: value,
+      },
+      value: '',
     });
-
+    console.log(number);
     if (strike === 4) {
       console.log('홈런!!! ' + count + '번 만에 맞추셨습니다');
     } else {
