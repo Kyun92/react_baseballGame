@@ -1,10 +1,12 @@
 import React from 'react';
-
+import './Form.css';
 const Form = ({ onSubmit, value, onChange }) => {
   return (
-    <form>
-      <input value={value} onChange={onChange} />
-      <button onClick={onSubmit}>What?</button>
+    <form className="form-box">
+      <input className="form-input" value={value} onChange={onChange} />
+      <div className="form-button" onClick={onSubmit}>
+        What?
+      </div>
     </form>
   );
 };

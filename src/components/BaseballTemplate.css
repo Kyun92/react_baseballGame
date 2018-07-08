@@ -1,0 +1,56 @@
+.baseball-template {
+  border: 1px solid black;
+  width: 512px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin: 0 auto;
+  margin-top: 4rem;
+  background-color: #252A34;
+  color: #f8f8f8;
+}
+
+.baseball-template-header {
+  text-align: center;
+  padding: 2rem;
+  font-size: 2.5rem;
+  border-bottom: 0.5px solid #eaeaea;
+}
+
+.baseball-template-header {
+  text-align: center;
+  padding: 2rem;
+  font-size: 2.5rem;
+  border-bottom: 0.5px solid #eaeaea;
+}
+
+.baseball-template-form {
+  padding: 1rem;
+  border-bottom: 0.5px solid #eaeaea;
+}
+
+.baseball-template-list {
+  min-height: 5rem;
+}
+
+.baseball-template-start {
+  min-height: 9.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.baseball-start-button {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: 1rem;
+  background: #FF2E63;
+  border-radius: 3px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.baseball-start-button:hover {
+  background: rgb(206, 36, 79);
+}

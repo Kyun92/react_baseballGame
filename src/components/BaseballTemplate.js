@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import './BaseballTemplate.css';
 
-const BaseballTemplate = ({ form, children, startGame }) => {
+const BaseballTemplate = ({ form, children, startGame, start }) => {
   return (
-    <div>
-      <h1>baseball</h1>
-      <button onClick={startGame}>시작</button>
-      {form}
-      {children}
-    </div>
+    <main className="baseball-template">
+      <header className="baseball-template-header">baseball</header>
+      {start ? (
+        <Fragment>
+          <section className="baseball-template-form">{form}</section>
+          <section className="baseball-template-list">{children}</section>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <section className="baseball-template-start">
+            <div className="baseball-start-button" onClick={startGame}>
+              시작
+            </div>
+          </section>
+        </Fragment>
+      )}
+    </main>
   );
 };
 

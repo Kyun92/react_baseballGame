@@ -1,0 +1,35 @@
+/*
+black :#252A34
+red :#FF2E63
+white : #EAEAEA
+green : #08D9D6
+*/
+
+.form-box {
+  display: flex;
+}
+
+.form-input {
+  height: 2rem;
+  width: 85%;
+  outline: none;
+  border: none;
+  background-color: #f8f8f8
+}
+
+.form-button {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 1rem;
+  background: #FF2E63;
+  border-radius: 3px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background: rgb(206, 36, 79);
+}
