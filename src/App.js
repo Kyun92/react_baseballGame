@@ -34,8 +34,7 @@ class App extends Component {
   };
 
   // submit
-  handleSubmit = e => {
-    e.preventDefault();
+  handleCreate = e => {
     this.checkInputData();
     this.setState({
       value: ""
@@ -77,14 +76,14 @@ class App extends Component {
       console.log(`strike : ${strike} ball : ${ball} count : ${count}`);
     }
   };
-  // TODO Form에서 엔터키 눌렀을때 페이지 새로고침 안되게 잡아야함
+
   handleKeyPress = (e) => {
-    // 눌려진 키가 Enter 면 handleSubmit 호출
+    // 눌려진 키가 Enter 면 handleCreate 호출
     if(e.key === 'Enter') {
-      this.checkInputData();
+      console.log('hhhhh')
+      this.handleCreate();
     }
   }
-
   render() {
     const { start, value } = this.state;
     return (
@@ -93,7 +92,7 @@ class App extends Component {
         start={start}
         form={
           <Form
-            onSubmit={this.handleSubmit}
+            onCreate={this.handleCreate}
             value={value}
             onChange={this.handleChange}
             onKeyPress={this.handleKeyPress}

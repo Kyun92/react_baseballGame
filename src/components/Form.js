@@ -1,10 +1,10 @@
 import React from "react";
 import "./Form.css";
-const Form = ({ onSubmit, value, onChange, onKeyPress }) => {
+const Form = ({ onCreate, value, onChange, onKeyPress }) => {
   return (
-    <form className="form-box">
+    <div className="form-box">
       {/* 길이 제한 4, 중복시 input border: red */}
-      {/* TODO 엔터키 눌렀을때 새로 고침 되는 것 잡아야함 */}
+      {/* input styleing */}
       <input
         className="form-input"
         value={value}
@@ -12,10 +12,10 @@ const Form = ({ onSubmit, value, onChange, onKeyPress }) => {
         maxLength="4"
         onKeyPress={onKeyPress}
       />
-      <div className="form-button" onClick={onSubmit}>
+      <div className="form-button" onClick={onCreate}>
         What?
       </div>
-    </form>
+    </div>
   );
 };
 
