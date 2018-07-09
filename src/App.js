@@ -9,14 +9,7 @@ class App extends Component {
     number: [],
     value: "",
     count: 1,
-    input: [
-      {
-        inputValue: "",
-        strike: 0,
-        ball: 0,
-        id: 1
-      }
-    ]
+    input: []
   };
   startGame = () => {
     let list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -84,6 +77,13 @@ class App extends Component {
       console.log(`strike : ${strike} ball : ${ball} count : ${count}`);
     }
   };
+  // TODO Form에서 엔터키 눌렀을때 페이지 새로고침 안되게 잡아야함
+  handleKeyPress = (e) => {
+    // 눌려진 키가 Enter 면 handleSubmit 호출
+    if(e.key === 'Enter') {
+      this.checkInputData();
+    }
+  }
 
   render() {
     const { start, value } = this.state;
@@ -96,6 +96,7 @@ class App extends Component {
             onSubmit={this.handleSubmit}
             value={value}
             onChange={this.handleChange}
+            onKeyPress={this.handleKeyPress}
           />
         }
       />
