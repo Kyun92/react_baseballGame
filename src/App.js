@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import './App.css';
-import BaseballTemplate from './components/BaseballTemplate';
-import Form from './components/Form';
+import React, { Component } from "react";
+import "./App.css";
+import BaseballTemplate from "./components/BaseballTemplate";
+import Form from "./components/Form";
 
 class App extends Component {
   state = {
     start: false,
     number: [],
-    value: '',
+    value: "",
     count: 1,
     input: [
       {
-        inputValue: '',
+        inputValue: "",
         strike: 0,
         ball: 0,
-        id: 1,
-      },
-    ],
+        id: 1
+      }
+    ]
   };
   startGame = () => {
     let list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -27,7 +27,7 @@ class App extends Component {
     }
     this.setState({
       number,
-      start: !this.state.start, // 시작버튼 누르면 리스트 화면 렌더링
+      start: !this.state.start // 시작버튼 누르면 리스트 화면 렌더링
     });
     console.log(this.state.number);
   };
@@ -36,17 +36,26 @@ class App extends Component {
   // todo - 4자리 이상 입력 X, 중복 X
   handleChange = e => {
     this.setState({
-      value: e.target.value,
+      value: e.target.value
     });
   };
 
-  // submit과 동시에 check 할지, 따로 check 함수 만들지 고민..
+  // submit
   handleSubmit = e => {
-    const { value, count, number } = this.state;
+    e.preventDefault();
+    this.checkInputData();
+    this.setState({
+      value: ""
+    });
+  };
+  // input 값과 number 비교하고 state.input에 객체 추가
+  checkInputData = () => {
+    const { value, count, number, input } = this.state;
+
+    const inputArr = value.split("");
     let strike = 0;
     let ball = 0;
-    e.preventDefault();
-    const inputArr = value.split('');
+
     for (var j = 0; j < 4; j++) {
       for (var k = 0; k < 4; k++) {
         if (number[j] == inputArr[k]) {
@@ -58,16 +67,19 @@ class App extends Component {
         }
       }
     }
+
     this.setState({
-      count: count + 1,
-      input: {
-        inputValue: value,
-      },
-      value: '',
+      input: input.concat({
+        value: value,
+        strike: strike,
+        ball: ball,
+        count: count + 1
+      })
     });
+
     console.log(number);
     if (strike === 4) {
-      console.log('홈런!!! ' + count + '번 만에 맞추셨습니다');
+      console.log("홈런!!! " + count + "번 만에 맞추셨습니다");
     } else {
       console.log(`strike : ${strike} ball : ${ball} count : ${count}`);
     }
