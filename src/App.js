@@ -1,16 +1,17 @@
-import React, { Component } from "react";
-import "./App.css";
-import BaseballTemplate from "./components/BaseballTemplate";
-import Form from "./components/Form";
+import React, { Component } from 'react';
+import './App.css';
+import BaseballTemplate from './components/BaseballTemplate';
+import Form from './components/Form';
+import ResultList from './components/ResultList';
 
 class App extends Component {
   state = {
     start: false,
     number: [],
-    value: "",
-    count: 1,
-    input: []
+    value: '',
+    input: [],
   };
+  count = 1;
   startGame = () => {
     let list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     let number = [];
@@ -20,7 +21,7 @@ class App extends Component {
     }
     this.setState({
       number,
-      start: !this.state.start // 시작버튼 누르면 리스트 화면 렌더링
+      start: !this.state.start, // 시작버튼 누르면 리스트 화면 렌더링
     });
     console.log(this.state.number);
   };
@@ -29,22 +30,22 @@ class App extends Component {
   // todo - 4자리 이상 입력 X, 중복 X
   handleChange = e => {
     this.setState({
-      value: e.target.value
+      value: e.target.value,
     });
   };
 
-  // submit
+  // input 배열 생성
   handleCreate = e => {
     this.checkInputData();
     this.setState({
-      value: ""
+      value: '',
     });
   };
   // input 값과 number 비교하고 state.input에 객체 추가
   checkInputData = () => {
-    const { value, count, number, input } = this.state;
+    const { value, number, input } = this.state;
 
-    const inputArr = value.split("");
+    const inputArr = value.split('');
     let strike = 0;
     let ball = 0;
 
@@ -65,27 +66,22 @@ class App extends Component {
         value: value,
         strike: strike,
         ball: ball,
-        count: count + 1
-      })
+        count: this.count++,
+      }),
     });
+  };
 
-    console.log(number);
-    if (strike === 4) {
-      console.log("홈런!!! " + count + "번 만에 맞추셨습니다");
-    } else {
-      console.log(`strike : ${strike} ball : ${ball} count : ${count}`);
+  handleKeyPress = e => {
+    // 눌려진 키가 Enter 면 handleCreate 호출
+    if (e.key === 'Enter') {
+      this.handleCreate();
     }
   };
 
-  handleKeyPress = (e) => {
-    // 눌려진 키가 Enter 면 handleCreate 호출
-    if(e.key === 'Enter') {
-      console.log('hhhhh')
-      this.handleCreate();
-    }
-  }
+  //TODO strike 4개면 맞췄다는 표시
+
   render() {
-    const { start, value } = this.state;
+    const { start, value, input } = this.state;
     return (
       <BaseballTemplate
         startGame={this.startGame}
@@ -97,8 +93,9 @@ class App extends Component {
             onChange={this.handleChange}
             onKeyPress={this.handleKeyPress}
           />
-        }
-      />
+        }>
+        <ResultList data={input} count={input.count} />
+      </BaseballTemplate>
     );
   }
 }

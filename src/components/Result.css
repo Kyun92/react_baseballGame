@@ -1,0 +1,39 @@
+.result {
+  color: #f8f8f8;
+  font-size: 1rem;
+  display: flex;
+  width: 100%;
+  min-height: 5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid white;
+}
+
+.result-value {
+  flex: 2;
+  font-size: 3rem;
+}
+
+.result-strike {
+  flex: 2;
+}
+
+.result-ball {
+  flex: 2;
+}
+
+.result-count {
+  flex: 0.7;
+  font-size: 1.5rem
+}
+
+.strikeCount {
+  color: yellow;
+  font-size: 0.8rem;
+}
+
+.ballCount {
+  color: green;
+  font-size: 0.8rem;
+}
