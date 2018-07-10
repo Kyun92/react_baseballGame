@@ -31,11 +31,11 @@ class App extends Component {
     console.log(this.state.number);
   };
 
-  // Form에 input 값 컨트롤
-  // todo - 중복 X
+  // Form에 input 값 컨트롤, 중복체크
   handleChange = e => {
     this.setState({
       value: e.target.value,
+      overlap : this.checkOverlap(e.target.value)
     });
   };
 
@@ -79,23 +79,24 @@ class App extends Component {
 
   handleKeyPress = e => {
     // 눌려진 키가 Enter 면 handleCreate 호출
+    const { overlap } = this.state;
     if (e.key === 'Enter') {
-      this.handleCreate();
+      overlap && this.handleCreate();
     }
   };
-  // ! value 값 입력하지마자 overlap 체크해야 되는데!!!
-  checkOverlap = () => {
-    const { value } = this.state;
+  //중복 체크 함수
+  checkOverlap = (value) => {
     const checkArr = value.split('');
     if(checkArr.length < 2){
-      return
+      return true;
     }
     for(let i = 0; i< checkArr.length; i++){
       let forCheck = checkArr.splice(i, 1);
       for(let j = 0 ; j < checkArr.length; j++){
-        if(forCheck[0] === checkArr[j]) this.setState({overlap : false})
+        if(forCheck[0] === checkArr[j]) return false;
       }
     }
+    return true;
   }
 
   //TODO strike 4개면 맞췄다는 표시
