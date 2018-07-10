@@ -11,6 +11,7 @@ class App extends Component {
     number: [],
     value: '',
     input: [],
+    overlap : true
   };
   count = 1;
 
@@ -48,8 +49,8 @@ class App extends Component {
   // input 값과 number 비교하고 state.input에 객체 추가
   checkInputData = () => {
     const { value, number, input } = this.state;
-
     const inputArr = value.split('');
+
     let strikeCount = 0;
     let ballCount = 0;
     for (var j = 0; j < 4; j++) {
@@ -82,12 +83,25 @@ class App extends Component {
       this.handleCreate();
     }
   };
-
+  // ! value 값 입력하지마자 overlap 체크해야 되는데!!!
+  checkOverlap = () => {
+    const { value } = this.state;
+    const checkArr = value.split('');
+    if(checkArr.length < 2){
+      return
+    }
+    for(let i = 0; i< checkArr.length; i++){
+      let forCheck = checkArr.splice(i, 1);
+      for(let j = 0 ; j < checkArr.length; j++){
+        if(forCheck[0] === checkArr[j]) this.setState({overlap : false})
+      }
+    }
+  }
 
   //TODO strike 4개면 맞췄다는 표시
 
   render() {
-    const { start, value, input} = this.state;
+    const { start, value, input, overlap } = this.state;
     return (
       <BaseballTemplate
         startGame={this.startGame}
@@ -96,6 +110,7 @@ class App extends Component {
           <Form
             onCreate={this.handleCreate}
             value={value}
+            overlap={overlap}
             onChange={this.handleChange}
             onKeyPress={this.handleKeyPress}
           />

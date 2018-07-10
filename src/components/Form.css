@@ -19,11 +19,14 @@ green : #08D9D6
   font-size: 4rem;
   color : #f8f8f8;
   height: 4rem;
-  width: 27%;
+  width: 33%;
   outline: none;
   border: none;
-  border-bottom: 2px dashed #f8f8f8;
+  border-bottom: 4px dashed #f8f8f8;
   background-color: #252A34
+}
+.overlap {
+  border-bottom : 4px dashed #FF2E63;
 }
 .form-text {
   font-size : 3rem;
