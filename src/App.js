@@ -11,7 +11,7 @@ class App extends Component {
     number: [],
     value: '',
     input: [],
-    overlap : true
+    overlap: false,
   };
   count = 1;
 
@@ -28,22 +28,24 @@ class App extends Component {
       number,
       start: !this.state.start, // 시작버튼 누르면 리스트 화면 렌더링
     });
-    console.log(this.state.number);
   };
 
   // Form에 input 값 컨트롤, 중복체크
   handleChange = e => {
     this.setState({
       value: e.target.value,
-      overlap : this.checkOverlap(e.target.value)
+      overlap: this.checkOverlap(e.target.value),
     });
   };
 
   // input 배열 생성
   handleCreate = e => {
+    const { value, overlap } = this.state;
+    if (value.length < 4 && overlap) return;
     this.checkInputData();
     this.setState({
       value: '',
+      overlap: false,
     });
   };
   // input 값과 number 비교하고 state.input에 객체 추가
@@ -72,11 +74,11 @@ class App extends Component {
         ball: ballCount,
         count: this.count++,
         // strike가 4개이면 state.finish = true
-        finish :  strikeCount === 4 ? true : false
+        finish: strikeCount === 4 ? true : false,
       }),
     });
   };
-
+  // 중복 or 4자리아닌 경우 정지
   handleKeyPress = e => {
     // 눌려진 키가 Enter 면 handleCreate 호출
     const { overlap } = this.state;
@@ -85,21 +87,33 @@ class App extends Component {
     }
   };
   //중복 체크 함수
-  checkOverlap = (value) => {
+  // ? 1202 처럼 2, 4 번째 중복 체크가 안됌
+  checkOverlap = value => {
     const checkArr = value.split('');
-    if(checkArr.length < 2){
-      return true;
+    if (checkArr.length < 2) {
+      return false;
     }
-    for(let i = 0; i< checkArr.length; i++){
-      let forCheck = checkArr.splice(i, 1);
-      for(let j = 0 ; j < checkArr.length; j++){
-        if(forCheck[0] === checkArr[j]) return false;
+    for (let i = 0; i < checkArr.length; i++) {
+      let temp = checkArr[i];
+      for (let j = i + 1; j < checkArr.length; j++) {
+        if (temp === checkArr[j]) return true;
       }
     }
-    return true;
-  }
 
-  //TODO strike 4개면 맞췄다는 표시
+    // let result = [];
+
+    // checkArr.forEach(function(element, index) {
+    //   if (checkArr.indexOf(element, index + 1) > -1) {
+    //     if (result.indexOf(element) !== -1) {
+    //       result.push(element);
+    //     }
+    //   }
+    // });
+    // if (result.length > 0) {
+    //   return false;
+    // }
+    return false;
+  };
 
   render() {
     const { start, value, input, overlap } = this.state;
@@ -116,7 +130,7 @@ class App extends Component {
             onKeyPress={this.handleKeyPress}
           />
         }>
-        <ResultList data={input} count={input.count}/>
+        <ResultList data={input} count={input.count} />
       </BaseballTemplate>
     );
   }
