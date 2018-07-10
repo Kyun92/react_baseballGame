@@ -15,6 +15,9 @@ const Form = ({ onCreate, value, onChange, onKeyPress, overlap }) => {
         maxLength="4"
         onKeyPress={onKeyPress}
       />
+      {
+        !overlap && <span>중복이 있습니다.</span>
+      }
       <div className="form-button" onClick={onCreate}>
         ?
       </div>
