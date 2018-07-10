@@ -6,11 +6,11 @@ import ResultList from './components/ResultList';
 
 class App extends Component {
   state = {
+    // ? 한번 쓰고 안쓰는 start, finish를 state에 보관하는게 맞을까?
     start: false,
     number: [],
     value: '',
     input: [],
-    finish : false,
   };
   count = 1;
   startGame = () => {
@@ -47,16 +47,15 @@ class App extends Component {
     const { value, number, input } = this.state;
 
     const inputArr = value.split('');
-    let strike = 0;
-    let ball = 0;
-
+    let strikeCount = 0;
+    let ballCount = 0;
     for (var j = 0; j < 4; j++) {
       for (var k = 0; k < 4; k++) {
         if (number[j] == inputArr[k]) {
           if (j === k) {
-            strike++;
+            strikeCount++;
           } else {
-            ball++;
+            ballCount++;
           }
         }
       }
@@ -65,18 +64,13 @@ class App extends Component {
     this.setState({
       input: input.concat({
         value: value,
-        strike: strike,
-        ball: ball,
+        strike: strikeCount,
+        ball: ballCount,
         count: this.count++,
+        // strike가 4개이면 state.finish = true
+        finish :  strikeCount === 4 ? true : false
       }),
     });
-
-    // strike가 4개이면 state.finish = true
-    if( strike === 4){
-      this.setState({
-        finish : true
-      })
-    }
   };
 
   handleKeyPress = e => {
@@ -90,7 +84,7 @@ class App extends Component {
   //TODO strike 4개면 맞췄다는 표시
 
   render() {
-    const { start, value, input, finish } = this.state;
+    const { start, value, input} = this.state;
     return (
       <BaseballTemplate
         startGame={this.startGame}
@@ -103,7 +97,7 @@ class App extends Component {
             onKeyPress={this.handleKeyPress}
           />
         }>
-        <ResultList data={input} count={input.count} finish={finish}/>
+        <ResultList data={input} count={input.count}/>
       </BaseballTemplate>
     );
   }

@@ -3,6 +3,7 @@ import './Result.css';
 
 class Result extends Component {
   // strike, ball 갯수 만큼 ● 찍어주기
+  // Todo : defaultProps 설정, 함수형 컴포넌트로 변경
   dotCount = inputCount => {
     let dot = '';
     for (let i = 0; i < inputCount; i++) {
@@ -10,9 +11,9 @@ class Result extends Component {
     }
     return dot;
   };
-  // Todo : finish === true ? render finsish section : render strike & ball
+  // Todo : finish === true ? render finsish section : render strike & ball styleing
   render() {
-    const { value, strike, ball, count } = this.props.input;
+    const { value, strike, ball, count, finish } = this.props.input;
 
     const strikeCount = this.dotCount(strike);
     const ballCount = this.dotCount(ball);
@@ -29,7 +30,7 @@ class Result extends Component {
           ball : <span className="ballCount">{ballCount}</span>
         </div>
         {
-          this.props.finish && (<h1> Finish </h1>) 
+          finish && (<h1> Finish </h1>) 
         }
 
       </div>
