@@ -5,6 +5,9 @@ const Form = ({ onCreate, value, onChange, onKeyPress }) => {
     <div className="form-box">
       {/* 길이 제한 4, 중복시 input border: red */}
       {/* input styleing */}
+      <div className="form-text">
+        Is it 
+      </div>
       <input
         className="form-input"
         value={value}
@@ -13,7 +16,7 @@ const Form = ({ onCreate, value, onChange, onKeyPress }) => {
         onKeyPress={onKeyPress}
       />
       <div className="form-button" onClick={onCreate}>
-        What?
+        ?
       </div>
     </div>
   );

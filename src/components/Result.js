@@ -11,24 +11,24 @@ class Result extends Component {
     }
     return dot;
   };
-  // Todo : finish === true ? render finsish section : render strike & ball styleing
   render() {
     const { value, strike, ball, count, finish } = this.props.input;
 
     const strikeCount = this.dotCount(strike);
     const ballCount = this.dotCount(ball);
-
-    //! section tag 때문에 flex 깨짐
+    // Todo finish 헀을때 reset 버튼 구현
+    // ? 컴포넌트 생성시 css transition을 줄려면 어떻게 해야할까?
     return (
-      <div className="result">
+      <div className={`result ${finish && "finish"}`}>
         <div className="result-count">{count}) </div>
         <div className="result-value">{value}</div>
+
         {finish ? (
-          <section>
-            <div className="result-finish">Finish</div>
+          <section className="result-finish">
+            <div>Finish</div>
           </section>
         ) : (
-          <section>
+          <section className="result-section-count">
             <div className="result-strike">
               Strike : <span className="strikeCount">{strikeCount}</span>
             </div>

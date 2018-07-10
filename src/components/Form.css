@@ -7,29 +7,39 @@ green : #08D9D6
 
 .form-box {
   display: flex;
+  font-family: 'Oleo Script', cursive;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .form-input {
-  height: 2rem;
-  width: 85%;
+  font-family: 'Oleo Script', cursive;
+  text-align: center;
+  font-size: 4rem;
+  color : #f8f8f8;
+  height: 4rem;
+  width: 27%;
   outline: none;
   border: none;
-  background-color: #f8f8f8
+  border-bottom: 2px dashed #f8f8f8;
+  background-color: #252A34
 }
-
+.form-text {
+  font-size : 3rem;
+  padding-right: 2rem;
+}
 .form-button {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 2rem;
+  font-size : 4rem;
   margin-left: 1rem;
-  background: #FF2E63;
   border-radius: 3px;
   color: white;
-  font-weight: 600;
+  font-weight: 100;
   cursor: pointer;
 }
 
 .form-button:hover {
-  background: rgb(206, 36, 79);
+  transition-duration: 0.5s;
+  color: #FF2E63;
 }

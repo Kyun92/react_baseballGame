@@ -1,4 +1,5 @@
 .result {
+  font-family: 'Oleo Script', cursive;
   color: #f8f8f8;
   font-size: 1rem;
   display: flex;
@@ -10,35 +11,47 @@
   border-bottom: 1px solid white;
 }
 
-.result-value {
-  flex: 2;
-  font-size: 3rem;
+.result-count {
+  flex: 0.7;
+  font-size: 1rem;
 }
 
-.result-strike {
+.result-value {
   flex: 2;
+  font-size: 2.2rem;
+}
+.result-section-count {
+  flex: 4;
+  display: flex;
+}
+.result-strike {
+  flex: 1;
+  font-size: 1.2rem;
 }
 
 .result-ball {
-  flex: 2;
+  flex: 1;
+  font-size: 1.2rem;
 }
 
-.result-count {
-  flex: 0.7;
-  font-size: 1.5rem
-}
 .result-finish {
-  flex : 3;
-  font-size : 3rem;
+  flex: 4;
+  font-size: 3rem;
   text-align: center;
+  font-weight: 100;
 }
-
+.finish {
+  /* ? 이게 안되네.. */
+  transition-delay: 0.5s;
+  transition-duration: 0.5s;
+  background-color: #FF2E63;
+}
 .strikeCount {
-  color: yellow;
+  color: #F6DE26;
   font-size: 0.8rem;
 }
 
 .ballCount {
-  color: green;
+  color: #43E81A;
   font-size: 0.8rem;
 }

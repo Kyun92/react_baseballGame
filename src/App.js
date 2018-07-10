@@ -13,6 +13,9 @@ class App extends Component {
     input: [],
   };
   count = 1;
+
+  // ? 모든 함수를 부모 컴포턴트인 App에 다 넣어야 되는건가?
+
   startGame = () => {
     let list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     let number = [];
@@ -28,7 +31,7 @@ class App extends Component {
   };
 
   // Form에 input 값 컨트롤
-  // todo - 4자리 이상 입력 X, 중복 X
+  // todo - 중복 X
   handleChange = e => {
     this.setState({
       value: e.target.value,
