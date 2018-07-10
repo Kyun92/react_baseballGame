@@ -10,6 +10,7 @@ class App extends Component {
     number: [],
     value: '',
     input: [],
+    finish : false,
   };
   count = 1;
   startGame = () => {
@@ -69,6 +70,13 @@ class App extends Component {
         count: this.count++,
       }),
     });
+
+    // strike가 4개이면 state.finish = true
+    if( strike === 4){
+      this.setState({
+        finish : true
+      })
+    }
   };
 
   handleKeyPress = e => {
@@ -78,10 +86,11 @@ class App extends Component {
     }
   };
 
+
   //TODO strike 4개면 맞췄다는 표시
 
   render() {
-    const { start, value, input } = this.state;
+    const { start, value, input, finish } = this.state;
     return (
       <BaseballTemplate
         startGame={this.startGame}
@@ -94,7 +103,7 @@ class App extends Component {
             onKeyPress={this.handleKeyPress}
           />
         }>
-        <ResultList data={input} count={input.count} />
+        <ResultList data={input} count={input.count} finish={finish}/>
       </BaseballTemplate>
     );
   }

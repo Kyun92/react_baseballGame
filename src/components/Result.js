@@ -10,7 +10,7 @@ class Result extends Component {
     }
     return dot;
   };
-
+  // Todo : finish === true ? render finsish section : render strike & ball
   render() {
     const { value, strike, ball, count } = this.props.input;
 
@@ -28,6 +28,10 @@ class Result extends Component {
         <div className="result-ball">
           ball : <span className="ballCount">{ballCount}</span>
         </div>
+        {
+          this.props.finish && (<h1> Finish </h1>) 
+        }
+
       </div>
     );
   }
