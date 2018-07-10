@@ -27,6 +27,11 @@
   flex: 0.7;
   font-size: 1.5rem
 }
+.result-finish {
+  flex : 3;
+  font-size : 3rem;
+  text-align: center;
+}
 
 .strikeCount {
   color: yellow;
