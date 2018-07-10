@@ -14,6 +14,7 @@ class App extends Component {
     value: '',
     input: [],
     overlap: false,
+    homerun: false,
   };
   count = 1;
 
@@ -28,7 +29,7 @@ class App extends Component {
     }
     this.setState({
       number,
-      start: !this.state.start, // 시작버튼 누르면 리스트 화면 렌더링
+      start: true, // 시작버튼 누르면 리스트 화면 렌더링
     });
   };
 
@@ -81,6 +82,7 @@ class App extends Component {
         // strike가 4개이면 state.finish = true
         finish: strikeCount === 4 ? true : false,
       }),
+      homerun: strikeCount === 4 ? true : false,
     });
   };
 
@@ -124,13 +126,20 @@ class App extends Component {
     return false;
   };
 
+  // ? 이게 왜 안돼?
+  // ! state reset!
+  resetState = () => {
+    console.log('reseeeet');
+  };
+
   render() {
-    const { start, value, input, overlap } = this.state;
+    const { start, value, input, overlap, homerun } = this.state;
     return (
       <BaseballTemplate
         startGame={this.startGame}
         start={start}
-        homerun={<Homerun />}
+        checkHomerun={homerun}
+        homerun={<Homerun reset={this.resetState} />}
         form={
           <Form
             onCreate={this.handleCreate}

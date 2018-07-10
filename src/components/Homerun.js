@@ -1,11 +1,14 @@
 import React from 'react';
 import './Homerun.css';
 
-const Homerun = () => {
+const Homerun = reset => {
+  console.log(reset);
   return (
     <div className="homerun">
       <span className="title">Homerun!</span>
-      <div className="homeruns-reset-button">reset</div>
+      <div className="homeruns-reset-button" onClick={reset}>
+        reset
+      </div>
     </div>
   );
 };
