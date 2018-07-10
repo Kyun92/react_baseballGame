@@ -3,6 +3,8 @@ import './App.css';
 import BaseballTemplate from './components/BaseballTemplate';
 import Form from './components/Form';
 import ResultList from './components/ResultList';
+import Homerun from './components/Homerun';
+// Todo Homerun render...
 
 class App extends Component {
   state = {
@@ -41,7 +43,10 @@ class App extends Component {
   // input 배열 생성
   handleCreate = e => {
     const { value, overlap } = this.state;
-    if (value.length < 4 && overlap) return;
+    // ? if문 두개 쓰지 않고 논리연산자로 처리할 수 없나?
+    // 중복 or 4자리아닌 경우 정지
+    if (value.length !== 4) return;
+    if (overlap) return;
     this.checkInputData();
     this.setState({
       value: '',
@@ -78,12 +83,16 @@ class App extends Component {
       }),
     });
   };
-  // 중복 or 4자리아닌 경우 정지
+
   handleKeyPress = e => {
     // 눌려진 키가 Enter 면 handleCreate 호출
-    const { overlap } = this.state;
+    const { overlap, value } = this.state;
     if (e.key === 'Enter') {
-      overlap && this.handleCreate();
+      // ? if문 두개 쓰지 않고 논리연산자로 처리할 수 없나?
+      // 중복 or 4자리아닌 경우 정지
+      if (value.length !== 4) return;
+      if (overlap) return;
+      this.handleCreate();
     }
   };
   //중복 체크 함수
@@ -121,6 +130,7 @@ class App extends Component {
       <BaseballTemplate
         startGame={this.startGame}
         start={start}
+        homerun={<Homerun />}
         form={
           <Form
             onCreate={this.handleCreate}

@@ -10,14 +10,13 @@ green : #08D9D6
   font-family: 'Oleo Script', cursive;
   justify-content: center;
   align-items: center;
-
 }
 
 .form-input {
   font-family: 'Oleo Script', cursive;
   text-align: center;
   font-size: 4rem;
-  color : #f8f8f8;
+  color: #f8f8f8;
   height: 4rem;
   width: 33%;
   outline: none;
@@ -25,17 +24,24 @@ green : #08D9D6
   border-bottom: 4px dashed #f8f8f8;
   background-color: #252A34
 }
+
 .overlap {
-  border-bottom : 4px dashed #FF2E63;
+  border-bottom: 4px dashed #FF2E63;
+}
+
+.form-overlap {
+  font-size: 3rem;
+  color: #FF2E63;
 }
 
 .form-text {
-  font-size : 3rem;
+  font-size: 3rem;
   padding-right: 2rem;
 }
+
 .form-button {
   padding-left: 2rem;
-  font-size : 4rem;
+  font-size: 4rem;
   margin-left: 1rem;
   border-radius: 3px;
   color: white;

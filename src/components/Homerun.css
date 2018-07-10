@@ -1,0 +1,32 @@
+.homerun {
+  text-align: center;
+  border-bottom: 1px solid #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+.title {
+  font-family: 'Oleo Script', cursive;
+  font-size: 3rem;
+}
+
+.homeruns-reset-button {
+  font-family: 'Oleo Script', cursive;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 10px;
+  background: #FF2E63;
+  border-radius: 3px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.homeruns-reset-button :hover {
+  background: rgb(206, 36, 79);
+}

@@ -5,7 +5,7 @@ const Form = ({ onCreate, value, onChange, onKeyPress, overlap }) => {
     <div className="form-box">
       {/* 길이 제한 4, 중복시 input border: red */}
       {/* input styleing */}
-      <div className="form-text">Is it</div>
+      <div className="form-text">{overlap ? 'This' : 'Is it'}</div>
       <input
         className={`form-input ${overlap ? 'overlap' : ''}`}
         value={value}
@@ -13,10 +13,13 @@ const Form = ({ onCreate, value, onChange, onKeyPress, overlap }) => {
         maxLength="4"
         onKeyPress={onKeyPress}
       />
-      {overlap && <span>중복이 있습니다.</span>}
-      <div className="form-button" onClick={onCreate}>
-        ?
-      </div>
+      {overlap ? (
+        <span className="form-overlap">overlap !</span>
+      ) : (
+        <div className="form-button" onClick={onCreate}>
+          ?
+        </div>
+      )}
     </div>
   );
 };
