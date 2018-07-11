@@ -12,7 +12,7 @@ const BaseballTemplate = ({
   return (
     <main className="baseball-template">
       <header className="baseball-template-header">
-        <section className="title">baseball</section>
+        <section className="title">Baseball</section>
       </header>
       {start ? (
         <Fragment>
