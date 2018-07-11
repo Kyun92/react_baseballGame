@@ -14,7 +14,7 @@ class App extends Component {
     value: '',
     input: [],
     overlap: false,
-    homerun: false,
+    checkHomerun: false,
   };
   count = 1;
 
@@ -82,7 +82,7 @@ class App extends Component {
         // strike가 4개이면 state.finish = true
         finish: strikeCount === 4 ? true : false,
       }),
-      homerun: strikeCount === 4 ? true : false,
+      checkHomerun: strikeCount === 4 ? true : false,
     });
   };
 
@@ -127,18 +127,26 @@ class App extends Component {
   };
 
   // ? 이게 왜 안돼?
-  // ! state reset!
+  // ! Warning: Expected `onClick` listener to be a function, instead got a value of `object` type.
+  
   resetState = () => {
     console.log('reseeeet');
+    this.startGame();
+    this.setState({
+      value: '',
+      input: [],
+      overlap: false,
+      checkHomerun: false,
+    })
   };
 
   render() {
-    const { start, value, input, overlap, homerun } = this.state;
+    const { start, value, input, overlap, checkHomerun } = this.state;
     return (
       <BaseballTemplate
         startGame={this.startGame}
         start={start}
-        checkHomerun={homerun}
+        checkHomerun={checkHomerun}
         homerun={<Homerun reset={this.resetState} />}
         form={
           <Form

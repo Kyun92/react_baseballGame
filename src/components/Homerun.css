@@ -12,7 +12,7 @@
   font-size: 3rem;
 }
 
-.homeruns-reset-button {
+.homerun-reset-button {
   font-family: 'Oleo Script', cursive;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
@@ -26,6 +26,6 @@
   cursor: pointer;
 }
 
-.homeruns-reset-button :hover {
-  background: rgb(206, 36, 79);
+.homerun-reset-button :hover {
+  background: rgb(167, 32, 65);
 }

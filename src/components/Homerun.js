@@ -6,7 +6,7 @@ const Homerun = reset => {
   return (
     <div className="homerun">
       <span className="title">Homerun!</span>
-      <div className="homeruns-reset-button" onClick={reset}>
+      <div className="homerun-reset-button" onClick={reset}>
         reset
       </div>
     </div>
