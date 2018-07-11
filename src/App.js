@@ -126,11 +126,7 @@ class App extends Component {
     return false;
   };
 
-  // ? 이게 왜 안돼?
-  // ! Warning: Expected `onClick` listener to be a function, instead got a value of `object` type.
-  
   resetState = () => {
-    console.log('reseeeet');
     this.startGame();
     this.setState({
       value: '',

@@ -1,8 +1,7 @@
 import React from 'react';
 import './Homerun.css';
 
-const Homerun = reset => {
-  console.log(reset);
+const Homerun = ({reset}) => {
   return (
     <div className="homerun">
       <span className="title">Homerun!</span>
