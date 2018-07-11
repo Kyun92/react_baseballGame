@@ -4,7 +4,6 @@ import BaseballTemplate from './components/BaseballTemplate';
 import Form from './components/Form';
 import ResultList from './components/ResultList';
 import Homerun from './components/Homerun';
-// Todo Homerun render...
 
 class App extends Component {
   state = {
@@ -16,6 +15,7 @@ class App extends Component {
     overlap: false,
     checkHomerun: false,
   };
+  // key 값으로 사용
   count = 1;
 
   // ? 모든 함수를 부모 컴포턴트인 App에 다 넣어야 되는건가?
@@ -61,8 +61,8 @@ class App extends Component {
 
     let strikeCount = 0;
     let ballCount = 0;
-    for (var j = 0; j < 4; j++) {
-      for (var k = 0; k < 4; k++) {
+    for (let j = 0; j < 4; j++) {
+      for (let k = 0; k < 4; k++) {
         if (number[j] == inputArr[k]) {
           if (j === k) {
             strikeCount++;
@@ -98,7 +98,6 @@ class App extends Component {
     }
   };
   //중복 체크 함수
-  // ? 1202 처럼 2, 4 번째 중복 체크가 안됌
   checkOverlap = value => {
     const checkArr = value.split('');
     if (checkArr.length < 2) {
@@ -110,22 +109,9 @@ class App extends Component {
         if (temp === checkArr[j]) return true;
       }
     }
-
-    // let result = [];
-
-    // checkArr.forEach(function(element, index) {
-    //   if (checkArr.indexOf(element, index + 1) > -1) {
-    //     if (result.indexOf(element) !== -1) {
-    //       result.push(element);
-    //     }
-    //   }
-    // });
-    // if (result.length > 0) {
-    //   return false;
-    // }
     return false;
   };
-
+  // 새로운 number set, state 초기 상태로
   resetState = () => {
     this.startGame();
     this.setState({
