@@ -16,4 +16,7 @@
 - 자신에 입맛에 맞게 스타일링 하기 (중요 x)
 - 시작버튼을 통해 number 을 받아와도 되고 처음 화면이 시작할때 받아와도 됩니다. ( 선택 )
 
+[Demo](https://kyun92.github.io/react_baseballGame/)
+
+---
 [숫자야구 소스코드](https://www.zerocho.com/category/JavaScript/post/573469602f5a261700434e03)
