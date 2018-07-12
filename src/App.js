@@ -42,9 +42,7 @@ class App extends Component {
   handleCreate = e => {
     const { value, overlap } = this.state;
     // 중복 or 4자리아닌 경우 정지
-    // if (value.length !== 4) return;
-    // if (overlap) return;
-    if(!overlap && (value.length !==4)) return;
+    if(overlap || (value.length !==4)) return;
     this.checkInputData();
     this.setState({
       value: '',
@@ -87,9 +85,7 @@ class App extends Component {
     const { overlap, value } = this.state;
     if (e.key === 'Enter') {
       // 중복 or 4자리아닌 경우 정지
-      // if (value.length !== 4) return;
-      // if (overlap) return;
-      if(!overlap && (value.length !==4)) return;
+      if(overlap || (value.length !==4)) return;
       this.handleCreate();
     }
   };
