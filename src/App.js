@@ -7,7 +7,6 @@ import Homerun from './components/Homerun';
 
 class App extends Component {
   state = {
-    // ? 한번 쓰고 안쓰는 start, finish를 state에 보관하는게 맞을까?
     start: false,
     number: [],
     value: '',
@@ -17,8 +16,6 @@ class App extends Component {
   };
   // key 값으로 사용
   count = 1;
-
-  // ? 모든 함수를 부모 컴포턴트인 App에 다 넣어야 되는건가?
 
   startGame = () => {
     let list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -44,10 +41,10 @@ class App extends Component {
   // input 배열 생성
   handleCreate = e => {
     const { value, overlap } = this.state;
-    // ? if문 두개 쓰지 않고 논리연산자로 처리할 수 없나?
     // 중복 or 4자리아닌 경우 정지
-    if (value.length !== 4) return;
-    if (overlap) return;
+    // if (value.length !== 4) return;
+    // if (overlap) return;
+    if(!overlap && (value.length !==4)) return;
     this.checkInputData();
     this.setState({
       value: '',
@@ -89,10 +86,10 @@ class App extends Component {
     // 눌려진 키가 Enter 면 handleCreate 호출
     const { overlap, value } = this.state;
     if (e.key === 'Enter') {
-      // ? if문 두개 쓰지 않고 논리연산자로 처리할 수 없나?
       // 중복 or 4자리아닌 경우 정지
-      if (value.length !== 4) return;
-      if (overlap) return;
+      // if (value.length !== 4) return;
+      // if (overlap) return;
+      if(!overlap && (value.length !==4)) return;
       this.handleCreate();
     }
   };
