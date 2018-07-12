@@ -51,7 +51,6 @@ class App extends Component {
     this.checkInputData();
     this.setState({
       value: '',
-      overlap: false,
     });
   };
   // input 값과 number 비교하고 state.input에 객체 추가
@@ -120,6 +119,7 @@ class App extends Component {
       overlap: false,
       checkHomerun: false,
     })
+    this.count = 1;
   };
 
   render() {
