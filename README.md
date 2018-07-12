@@ -91,13 +91,13 @@ dotCount()        // props로 받은 strike, ball의 개수 많음 ' ● ' 리�
 > state.start 경우 처음 스타트 버튼 클릭시에만 사용된다. 하지만 리액트가 state가 변경시에만 리렌더링이 되는 것으로 알고 있어서 state 안에 넣어 놨지만, 다른 방법이 있지 않을까?
 - 컴포넌트 생성시 css transition을 주려면 어떻게 해야할까?
 > 아마 ' Sass '나 ' styled-components '를 사용하면 될거 같긴 한데 처음 개발할때 고려하지 않은 점이 아쉽다.
-- 4자리 이하 숫자와 중복 일때 렌더링 막기
+<!-- - 4자리 이하 숫자와 중복 일때 렌더링 막기
 > ```
 >if (value.length !== 4) return;
 >if (overlap) return; 
 >```
 > 이렇게 처리 했는데 처음엔 
->```
+>``` -->
 <!-- > if(overlap && value.length !==4) return;
 >```
 > 이렇게 처리 했었다. 하지만 이 경우에 중복된 숫자가있고 4글자이면(ex 2222) 저 조건을 통과해버린다  -->
