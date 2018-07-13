@@ -7,7 +7,6 @@ import Homerun from './components/Homerun';
 
 class App extends Component {
   state = {
-    start: false,
     number: [],
     value: '',
     input: [],
@@ -16,6 +15,8 @@ class App extends Component {
   };
   // key 값으로 사용
   count = 1;
+  // 시작화면 조건
+  start = false;
 
   startGame = () => {
     let list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -25,9 +26,9 @@ class App extends Component {
       number[i] = list.splice(select, 1)[0];
     }
     this.setState({
-      number,
-      start: true, // 시작버튼 누르면 리스트 화면 렌더링
+      number, // 시작버튼 누르면 리스트 화면 렌더링
     });
+    this.start = true;
   };
 
   // Form에 input 값 컨트롤, 중복체크
@@ -120,7 +121,7 @@ class App extends Component {
     return (
       <BaseballTemplate
         startGame={this.startGame}
-        start={start}
+        start={this.start}
         checkHomerun={checkHomerun}
         homerun={<Homerun reset={this.resetState} />}
         form={

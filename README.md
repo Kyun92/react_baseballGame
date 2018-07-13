@@ -15,9 +15,8 @@
 - 시작버튼을 통해 number 을 받아와도 되고 처음 화면이 시작할때 받아와도 됩니다. ( 선택 )
 ---
 ## State 
-```
+```css
 state = {
-    start: Bool,            // 시작 상태 알림
     number: Arr,            // 맞춰야할 숫자 배열
     value: Str,             // input value
     input: [
@@ -26,16 +25,16 @@ state = {
         strike: Num,        // strike 개수
         ball: Num,          // ball 개수
         count: Num,         // 진행 카운트
-        finish: Bool,       // strike로 판별, 4개면 true 
+        finish: Bool,       // strike로 판별, 4개면 true
       },
     ],  
     overlap : Bool,         // value값 중복 여부 확인
-    checkHomerun : Bool,    // finish 여부 확인 
+    checkHomerun : Bool,    // finish 여부 확인
   };
 ```
 ---
 ## function
-```
+```css
 startGame()       // number 생성,
 
 handleChange()    // input 입력 값 set, 중복 여부 체크
@@ -88,7 +87,8 @@ dotCount()        // props로 받은 strike, ball의 개수 많음 ' ● ' 리�
 - 부모 컴포넌트에 함수를 다 넣어버리고 자식들에게 뿌려주는게 맞을까?
 > 정말 작디 작은 프로젝트였지만, 그럼에도 점점 불어나는 App컴포넌트를 보면서 규모가 큰 프로젝트에서는 어떻게 함수와 state를 관리 하는지 궁금해졌다.
 - 어떤 값을 state로 넣어야 하는가
-> state.start 경우 처음 스타트 버튼 클릭시에만 사용된다. 하지만 리액트가 state와 props가 변경시에만 리렌더링이 되는 것으로 알고 있어서 state 안에 넣어 놨지만, 다른 방법이 있지 않을까?
+> ~~state.start 경우 처음 스타트 버튼 클릭시에만 사용된다. 하지만 리액트가 state와 props가 변경시에만 리렌더링이 되는 것으로 알고 있어서 state 안에 넣어 놨지만, 다른 방법이 있지 않을까?~~  
+> props가 변경되어도 렌더링이 된다. 이것을 이용해서 start를 state 밖에 정의해 props로 넘겨주니 기존과 같이 동일하게 동작한다. (180713)
 - 컴포넌트 생성시 css transition을 주려면 어떻게 해야할까?
 > 아마 ' Sass '나 ' styled-components '를 사용하면 될거 같긴 한데 처음 개발할때 고려하지 않은 점이 아쉽다.
 
