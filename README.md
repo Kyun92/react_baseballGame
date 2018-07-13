@@ -15,7 +15,7 @@
 - 시작버튼을 통해 number 을 받아와도 되고 처음 화면이 시작할때 받아와도 됩니다. ( 선택 )
 ---
 ## State 
-```css
+```
 state = {
     number: Arr,            // 맞춰야할 숫자 배열
     value: Str,             // input value
