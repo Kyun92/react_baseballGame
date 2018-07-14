@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import "./Result.css";
+import React, { Component } from 'react';
+import './Result.css';
 
 class Result extends Component {
   // strike, ball 갯수 만큼 ● 찍어주기
   dotCount = inputCount => {
-    let dot = "";
+    let dot = '';
     for (let i = 0; i < inputCount; i++) {
-      dot += " ●";
+      dot += ' ●';
     }
     return dot;
   };
@@ -16,7 +16,7 @@ class Result extends Component {
     const strikeCount = this.dotCount(strike);
     const ballCount = this.dotCount(ball);
     return (
-      <div className={`result ${finish && "finish"}`}>
+      <div className={`result ${finish && 'finish'}`}>
         <div className="result-count">{count}) </div>
         <div className="result-value">{value}</div>
 
