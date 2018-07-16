@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import './App.css';
-import BaseballTemplate from './components/BaseballTemplate';
-import Form from './components/Form';
-import ResultList from './components/ResultList';
-import Homerun from './components/Homerun';
+import React, { Component } from "react";
+import "./App.css";
+import BaseballTemplate from "./components/BaseballTemplate";
+import Form from "./components/Form";
+import ResultList from "./components/ResultList";
+import Homerun from "./components/Homerun";
 
 class App extends Component {
   state = {
     number: [],
-    value: '',
+    value: "",
     input: [],
     overlap: false,
-    checkHomerun: false,
+    checkHomerun: false
   };
   // key 값으로 사용
   count = 1;
@@ -26,21 +26,30 @@ class App extends Component {
       number[i] = list.splice(select, 1)[0];
     }
     this.setState({
-      number, // 시작버튼 누르면 리스트 화면 렌더링
+      number // 시작버튼 누르면 리스트 화면 렌더링
     });
     this.start = true;
   };
 
   // Form에 input 값 컨트롤, 중복체크
   handleChange = e => {
-    if (!e.target.value[e.target.value.length - 1].match(/[0-9]/gi)) {
-      return;
-    }
+    const { value } = e.target;
+    // ? 이게 최선일까
+    const regxp = /[0-9]/gi;
 
-    this.setState({
-      value: e.target.value,
-      overlap: this.checkOverlap(e.target.value),
-    });
+    if (value.length - 1 === -1) {
+      this.setState({
+        value: ""
+      });
+      return;
+    } else if (!value[value.length - 1].match(regxp)) {
+      return;
+    } else {
+      this.setState({
+        value: value,
+        overlap: this.checkOverlap(value)
+      });
+    }
   };
 
   // input 배열 생성
@@ -50,13 +59,13 @@ class App extends Component {
     if (overlap || value.length !== 4) return;
     this.checkInputData();
     this.setState({
-      value: '',
+      value: ""
     });
   };
   // input 값과 number 비교하고 state.input에 객체 추가
   checkInputData = () => {
     const { value, number, input } = this.state;
-    const inputArr = value.split('');
+    const inputArr = value.split("");
 
     let strikeCount = 0;
     let ballCount = 0;
@@ -79,17 +88,17 @@ class App extends Component {
         ball: ballCount,
         count: this.count++,
         // strike가 4개이면 state.finish = true
-        finish: strikeCount === 4 ? true : false,
+        finish: strikeCount === 4 ? true : false
       }),
-      checkHomerun: strikeCount === 4 ? true : false,
+      checkHomerun: strikeCount === 4 ? true : false
     });
   };
 
   handleKeyPress = e => {
     // 눌려진 키가 Enter 면 handleCreate 호출
     const { overlap, value } = this.state;
-    // ? 왜안되지
-    if (e.key === 'Enter') {
+
+    if (e.key === "Enter") {
       // 중복 or 4자리아닌 경우 정지
       if (overlap || value.length !== 4) return;
       this.handleCreate();
@@ -97,7 +106,7 @@ class App extends Component {
   };
   //중복 체크 함수
   checkOverlap = value => {
-    const checkArr = value.split('');
+    const checkArr = value.split("");
     if (checkArr.length < 2) {
       return false;
     }
@@ -113,10 +122,10 @@ class App extends Component {
   resetState = () => {
     this.startGame();
     this.setState({
-      value: '',
+      value: "",
       input: [],
       overlap: false,
-      checkHomerun: false,
+      checkHomerun: false
     });
     this.count = 1;
   };
@@ -137,7 +146,8 @@ class App extends Component {
             onChange={this.handleChange}
             onKeyPress={this.handleKeyPress}
           />
-        }>
+        }
+      >
         <ResultList data={input} count={input.count} />
       </BaseballTemplate>
     );

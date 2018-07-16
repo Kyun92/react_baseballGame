@@ -1,4 +1,4 @@
-## Baseball Game 
+# Baseball Game 
 #### [Demo](https://kyun92.github.io/react_baseballGame/)
 ---
 ## Goal
