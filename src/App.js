@@ -117,6 +117,7 @@ class App extends Component {
     }
     return false;
   };
+  
   // 새로운 number set, state 초기 상태로
   resetState = () => {
     this.startGame();
