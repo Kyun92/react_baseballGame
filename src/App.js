@@ -35,25 +35,24 @@ class App extends Component {
   handleChange = e => {
     const { value } = e.target;
     // ? 이게 최선일까
-    const regxp = /[0-9]/gi;
 
     if (value.length - 1 === -1) {
       this.setState({
-        value: ""
+        value
       });
       return;
-    } else if (!value[value.length - 1].match(regxp)) {
+    } else if (!value[value.length - 1].match(/[0-9]/gi)) {
       return;
     } else {
       this.setState({
-        value: value,
+        value,
         overlap: this.checkOverlap(value)
       });
     }
   };
 
   // input 배열 생성
-  handleCreate = e => {
+  handleCreate = () => {
     const { value, overlap } = this.state;
     // 중복 or 4자리아닌 경우 정지
     if (overlap || value.length !== 4) return;

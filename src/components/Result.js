@@ -4,14 +4,13 @@ import "./Result.css";
 const Result = ({ input }) => {
   const { strike, ball, finish, value, count } = input;
   // strike, ball 갯수 만큼 ● 찍어주기
-  const dotCount = (inputCount) =>{
+  const dotCount = inputCount => {
     let dot = "";
     for (let i = 0; i < inputCount; i++) {
       dot += " ●";
     }
     return dot;
   };
-
   let strikeCount = dotCount(strike);
   let ballCount = dotCount(ball);
 
