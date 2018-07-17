@@ -49,7 +49,7 @@ checkOverlap()    // value 중복 여부 확인
 
 resetState()      // state 초기화
 
-dotCount()        // props로 받은 strike, ball의 개수 많음 ' ● ' 리턴 
+dotCount()        // props로 받은 strike, ball의 개수 만큼 ' ● ' 리턴 
 ```
 ---
 ## Component 
