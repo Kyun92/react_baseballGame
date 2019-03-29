@@ -20,5 +20,11 @@
     "gh-pages": "^2.0.1",
     "prettier-eslint": "^8.8.2"
   },
-  "homepage": "http://Kyun92.github.io/react_baseballGame"
+  "homepage": "http://Kyun92.github.io/react_baseballGame",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
