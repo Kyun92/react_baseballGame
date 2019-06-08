@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import './BaseballTemplate.css';
+import React, { Fragment } from "react";
+import "./BaseballTemplate.css";
 
 const BaseballTemplate = ({
   form,
@@ -7,7 +7,7 @@ const BaseballTemplate = ({
   startGame,
   start,
   homerun,
-  checkHomerun,
+  checkHomerun
 }) => {
   return (
     <main className="baseball-template">
